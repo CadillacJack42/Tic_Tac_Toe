@@ -1,1 +1,1 @@
-print("freedom or nap")
+print("freedom or nap!")
