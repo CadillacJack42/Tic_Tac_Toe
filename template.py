@@ -6,13 +6,17 @@ game_on = "x"
 while game_on:
     play = input("Enter a number between 1 and 9 : ")
 
+    if int(play) not in choices:
+        play = input(f'''
+That number has already been played. 
+Available numbers are ; {choices}
+Enter a number fom the available choices : ''')
     for i in board:                     
         for j in i:                     
             j = (i.index(j))            
             if int(play) == i[j]:       
                 i[j] = "x"              
                 choices.remove(int(play))
-                print(i)
 
     comp = select(choices)
     
