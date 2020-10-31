@@ -11,6 +11,7 @@ while game_on:
 That number has already been played. 
 Available numbers are ; {choices}
 Enter a number fom the available choices : ''')
+
     for i in board:                     
         for j in i:                     
             j = (i.index(j))            
