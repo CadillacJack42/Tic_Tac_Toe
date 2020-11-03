@@ -59,46 +59,38 @@ class Game(Player):
         for i in board:
             if i == ["x","x","x"]:
                 self.game_on = 1
-                print("You Win1")
             elif board[0][0] == "x" and board[1][0] == "x" and board[2][0] == "x":
                 self.game_on = 2
-                print("you Win2")
             elif board[0][1] == "x" and board[1][1] == "x" and board[2][1] == "x":
                 self.game_on = 3
-                print("you Win3")
             elif board[0][2] == "x" and board[1][2] == "x" and board[2][2] == "x":
                 self.game_on = 4
-                print("you Win4")
             elif board[0][0] == "x" and board[1][1] == "x" and board[2][2] == "x":
                 self.game_on = 5
-                print("you Win5")
             elif board[0][2] == "x" and board[1][1] == "x" and board[2][0] == "x":
                 self.game_on = 6
-                print("you Win6")
-        
-
-        for i in board:
-            if i == ["o","o","o"]:
+    
+            elif i == ["o","o","o"]:
                 self.game_on = 7
-                print("You Lose1")
+
             elif board[0][0] == "o" and board[1][0] == "o" and board[2][0] == "o":
                 self.game_on = 8
-                print("you Lose2")
+
             elif board[0][1] == "o" and board[1][1] == "o" and board[2][1] == "o":
                 self.game_on = 9
-                print("you Lose3")
+
             elif board[0][2] == "o" and board[1][2] == "o" and board[2][2] == "o":
                 self.game_on = 11
-                print("you Lose4")
+
             elif board[0][0] == "o" and board[1][1] == "o" and board[2][2] == "o":
                 self.game_on = 12
-                print("you Lose5")
+
             elif board[0][2] == "o" and board[1][1] == "o" and board[2][0] == "o":
                 self.game_on = 13
-                print("you Lose6")
-        if choices == []:
-            self.game_on = 14
-            print("Looks like there are no more available moves")
+
+            elif choices == []:
+                self.game_on = 14
+                
         return self.game_on
 
 
@@ -108,8 +100,16 @@ class Tic():
         while game_on == 0:
             Games = Game(game_on)
             game_on = Games.Win_loss()
+            print(game_on)
+            if game_on in range(1,7):
+                print("You've Won")
+            elif game_on in range(7,14):
+                print("You've Lost")
+            elif game_on == 14:
+                print("Looks like there are no more available moves")
             if game_on != 0:
                 break
+            
             Game(game_on)
         
 Tic()
