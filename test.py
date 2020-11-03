@@ -31,7 +31,8 @@ class Game(Player):
                 if int(play) == i[j]:       
                     i[j] = "x"            
                     choices.remove(int(play))
-        self.Win_loss()
+        self.game_on = self.Win_loss()
+        
                                    
         player2 = self.player2()
         for i in board:                    
@@ -40,7 +41,7 @@ class Game(Player):
                 if player2 == i[j]:
                     i[j] = "o" 
                     choices.remove(player2)
-        self.Win_loss()
+        self.game_on = self.Win_loss()
         game = f""" 
             {board[0][0]} | {board[0][1]} | {board[0][2]}
             --+---+--
@@ -52,59 +53,54 @@ class Game(Player):
     def Win_loss(self):
         for i in board:
             if i == ["x","x","x"]:
-                self.game_on = ''
+                self.game_on = 1
                 print("You Win")
             if board[0][0] == board[1][0] == board[2][0] == "x":
-                self.game_on = ''
+                self.game_on = 1
                 print("you Win")
             elif board[0][1] == board[1][1] == board[2][1] == "x":
-                self.game_on = ''
+                self.game_on = 1
                 print("you Win")
             elif board[0][2] == board[1][2] == board[2][2] == "x":
-                self.game_on = ''
+                self.game_on = 1
                 print("you Win")
             elif board[0][0] == board[1][1] == board[2][2] == "x":
-                self.game_on = ''
+                self.game_on = 1
                 print("you Win")
             elif board[0][2] == board[1][1] == board[2][0] == "x":
-                self.game_on = ''
+                self.game_on = 1
                 print("you Win")
-                return self.game_on
+        
 
         for i in board:
             if i == ["o","o","o"]:
-                self.game_on = ''
+                self.game_on = 1
                 print("You Lose")
             if board[0][0] == board[1][0] == board[2][0] == "o":
-                self.game_on = ''
+                self.game_on = 1
                 print("you Lose")
             elif board[0][1] == board[1][1] == board[2][1] == "o":
-                self.game_on = ''
+                self.game_on = 1
                 print("you Lose")
             elif board[0][2] == board[1][2] == board[2][2] == "o":
-                self.game_on = ''
+                self.game_on = 1
                 print("you Lose")
             elif board[0][0] == board[1][1] == board[2][2] == "o":
-                self.game_on = ''
+                self.game_on = 1
                 print("you Lose")
             elif board[0][2] == board[1][1] == board[2][0] == "o":
-                self.game_on = ''
+                self.game_on = 1
                 print("you Lose")
-            return self.game_on
+        return self.game_on
 
 
 class Tic():
     def __init__(self):
-        game_on = "x"
-        while game_on:
-            Game(game_on)
+        game_on = 0
+        while game_on == 0:
             Games = Game(game_on)
-            self.game_on = Games.Win_loss()
-            print(game_on)
+            game_on = Games.Win_loss()
+            Game(game_on)
+        print(game_on)
         
-
-
 Tic()
-
-
-
